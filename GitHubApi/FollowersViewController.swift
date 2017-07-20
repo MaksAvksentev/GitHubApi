@@ -10,6 +10,11 @@ import UIKit
 
 class FollowersViewController: BaseUsersViewController {
 
+    class var className: String {
+    
+        return "FollowersViewController"
+    }
+    
     //MARK: - UsersDataSourceProtocol
     override func typeForDataSource() -> DataSourceState {
         

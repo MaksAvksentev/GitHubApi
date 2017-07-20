@@ -14,8 +14,24 @@ class UserTableViewCell: UITableViewCell {
     @IBOutlet weak var linkLabel: UILabel!
     @IBOutlet weak var avatarView: UIImageView!
     
+    class var reuseIdentifier: String {
+        return "UserTableViewCell"
+    }
+    
+    class func nib() -> UINib {
+        
+        return UINib(nibName: "UserTableViewCell", bundle: Bundle.main)
+    }
+
     override func awakeFromNib() {
         super.awakeFromNib()
-
+        
+    }
+    
+    override func prepareForReuse() {
+        
+        super.prepareForReuse()
+        
+        self.avatarView.image = nil
     }
 }

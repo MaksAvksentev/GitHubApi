@@ -52,7 +52,7 @@ class UsersStore: NSObject {
     
     func updateFollowers(forUser login: String,completionHandler: @escaping UsersStoreCompletionHandler) {
         
-        self.update(forType: .Followers, completionHandler: completionHandler)
+        self.update(forType: .Followers, withUser: login, completionHandler: completionHandler)
     }
     
     //MARK: - Private
@@ -64,6 +64,7 @@ class UsersStore: NSObject {
             case .Users:
                 return APIMethods.LoadUsers
             case .Followers:
+                self.followers = [String]()
                 return APIMethods.LoadFollowers(login!)
             case .None:
                 return nil
@@ -117,7 +118,7 @@ class UsersStore: NSObject {
         case .Followers:
             if !self.followers.contains(id) {
                 
-                self.users.append(id)
+                self.followers.append(id)
             }
         default:
             break
