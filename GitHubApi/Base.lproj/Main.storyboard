@@ -52,7 +52,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Users" id="HkU-2s-YVd"/>
                     <connections>
-                        <segue destination="x6j-Fk-o5q" kind="show" identifier="fromUsersToFollowers" id="C1l-uR-ETk"/>
+                        <outlet property="tableView" destination="zND-w4-ZqI" id="tRm-zj-rKS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6vX-d8-qEQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -62,7 +62,7 @@
         <!--Followers-->
         <scene sceneID="00o-QA-8Dg">
             <objects>
-                <viewController id="x6j-Fk-o5q" customClass="FollowersViewController" customModule="GitHubApi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FollowersViewController" id="x6j-Fk-o5q" customClass="FollowersViewController" customModule="GitHubApi" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fIH-cl-t1r"/>
                         <viewControllerLayoutGuide type="bottom" id="TCt-8b-mw6"/>
@@ -84,7 +84,10 @@
                             <constraint firstAttribute="trailing" secondItem="tyb-oM-BsZ" secondAttribute="trailing" id="fvg-lI-yIl"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Followers" id="Nar-YY-Yuy"/>
+                    <navigationItem key="navigationItem" title="Followers" id="QrY-z8-Q4X" userLabel="Followers"/>
+                    <connections>
+                        <outlet property="tableView" destination="tyb-oM-BsZ" id="wez-Gk-RJ1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xvn-QO-DnS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -17,6 +17,7 @@ struct UserJsonKeys {
     static let login = "login"
     static let avatar_url = "avatar_url"
     static let followers_url = "followers_url"
+    static let html_url = "html_url"
 }
 
 extension User {
@@ -29,6 +30,7 @@ extension User {
         entity.login = json[UserJsonKeys.login].stringValue
         entity.avatar_url = json[UserJsonKeys.avatar_url].stringValue
         entity.followers_url = json[UserJsonKeys.followers_url].stringValue
+        entity.html_url = json[UserJsonKeys.html_url].stringValue
         
         return entity
     }
@@ -57,9 +59,14 @@ extension User {
     
     func update(withJSON json: JSON) {
     
-        self.avatar_url = json[UserJsonKeys.avatar_url].stringValue
+        if self.avatar_url != json[UserJsonKeys.avatar_url].stringValue {
+        
+            self.avatar_url = json[UserJsonKeys.avatar_url].stringValue
+            self.avatar = nil
+        }
+        
         self.login = json[UserJsonKeys.login].stringValue
-        self.avatar = nil
+        self.html_url = json[UserJsonKeys.html_url].stringValue
     }
     
 }

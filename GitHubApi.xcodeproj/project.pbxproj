@@ -26,6 +26,7 @@
 		2846AB701F211A6B00FF378E /* APIMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2846AB6F1F211A6B00FF378E /* APIMethods.swift */; };
 		2846AB731F211B1900FF378E /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2846AB721F211B1900FF378E /* Logger.swift */; };
 		2846AB751F211B4D00FF378E /* UIViewController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2846AB741F211B4D00FF378E /* UIViewController+Alerts.swift */; };
+		28C7A7CB1F2164C300E69B3B /* StoryboardUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C7A7CA1F2164C300E69B3B /* StoryboardUtilities.swift */; };
 		32E277B7EA6F1FB6350115BA /* Pods_GitHubApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C627C9CD091D1E710BE0B0D6 /* Pods_GitHubApi.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,7 @@
 		2846AB6F1F211A6B00FF378E /* APIMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIMethods.swift; sourceTree = "<group>"; };
 		2846AB721F211B1900FF378E /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		2846AB741F211B4D00FF378E /* UIViewController+Alerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alerts.swift"; sourceTree = "<group>"; };
+		28C7A7CA1F2164C300E69B3B /* StoryboardUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardUtilities.swift; sourceTree = "<group>"; };
 		A604E5E3881235CC2E7F9AB8 /* Pods-GitHubApi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubApi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GitHubApi/Pods-GitHubApi.debug.xcconfig"; sourceTree = "<group>"; };
 		C627C9CD091D1E710BE0B0D6 /* Pods_GitHubApi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitHubApi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -165,6 +167,7 @@
 			children = (
 				2846AB721F211B1900FF378E /* Logger.swift */,
 				2846AB741F211B4D00FF378E /* UIViewController+Alerts.swift */,
+				28C7A7CA1F2164C300E69B3B /* StoryboardUtilities.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 				2846AB691F210B3300FF378E /* UserTableViewCell.swift in Sources */,
 				2846AB621F20FBB100FF378E /* BaseUsersViewController.swift in Sources */,
 				2846AB551F20F6F400FF378E /* CoreDataManager.swift in Sources */,
+				28C7A7CB1F2164C300E69B3B /* StoryboardUtilities.swift in Sources */,
 				2846AB641F20FC4400FF378E /* UsersViewController.swift in Sources */,
 				2846AB3F1F20F3A800FF378E /* AppDelegate.swift in Sources */,
 				2846AB731F211B1900FF378E /* Logger.swift in Sources */,
