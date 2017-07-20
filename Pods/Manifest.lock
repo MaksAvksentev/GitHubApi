@@ -1,0 +1,26 @@
+PODS:
+  - Alamofire (4.5.0)
+  - BNRCoreDataStack (2.2.1)
+  - CocoaLumberjack/Default (3.2.0)
+  - CocoaLumberjack/Swift (3.2.0):
+    - CocoaLumberjack/Default
+  - ReachabilitySwift (3)
+  - SwiftyJSON (3.1.4)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.4)
+  - BNRCoreDataStack
+  - CocoaLumberjack/Swift
+  - ReachabilitySwift
+  - SwiftyJSON
+
+SPEC CHECKSUMS:
+  Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
+  BNRCoreDataStack: 7919a8c27691681c6ca0650b2757292eeba6d14a
+  CocoaLumberjack: 9b4aed7073d242f29cc2f62068d995faf67f703a
+  ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+
+PODFILE CHECKSUM: 0fd5726c190fe607d8d757da59d69fdee7b499bb
+
+COCOAPODS: 1.2.0
