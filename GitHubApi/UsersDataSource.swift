@@ -54,6 +54,9 @@ class UsersDataSource: NSObject, UITableViewDataSource {
             return
         }
         
+        UsersStore.shared.page = 0
+        UsersStore.shared.cleanFollowers()
+        
         self.state = type
     }
     
@@ -114,7 +117,7 @@ class UsersDataSource: NSObject, UITableViewDataSource {
             
             cell.avatarView.image = compressedImage
         } else {
-        
+            
             APIManager.performDownloadRequest(urlString: user.avatar_url!, completionHandler: {[weak cell] data, error in
                 guard error == nil, let data = data else {
                     //FIXME: Handle error here
@@ -127,7 +130,7 @@ class UsersDataSource: NSObject, UITableViewDataSource {
                     let compressedImage = UIImage(data: compressedData)
                     
                     user.avatar = data as NSData?
-                    CoreDataManager.shared.saveContext()
+                    //CoreDataManager.shared.saveContext()
                     
                     DispatchQueue.main.async {
                         cell?.avatarView.image = compressedImage

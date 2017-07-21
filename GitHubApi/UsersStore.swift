@@ -22,6 +22,9 @@ class UsersStore: NSObject {
     private var users = [String]()
     private var followers = [String]()
 
+    var batchSize = 20
+    var page = 0
+    
     private override init() {
     
         super.init()
@@ -55,6 +58,11 @@ class UsersStore: NSObject {
         self.update(forType: .Followers, withUser: login, completionHandler: completionHandler)
     }
     
+    func cleanFollowers() {
+    
+        self.followers = [String]()
+    }
+    
     //MARK: - Private
     private func update(forType type: DataSourceState,withUser login: String? = nil, completionHandler: @escaping UsersStoreCompletionHandler) {
         
@@ -62,10 +70,10 @@ class UsersStore: NSObject {
         
             switch type {
             case .Users:
-                return APIMethods.LoadUsers
+                return APIMethods.LoadUsers(since: self.users.count, per_page: self.batchSize)
             case .Followers:
-                self.followers = [String]()
-                return APIMethods.LoadFollowers(login!)
+                self.page += 1
+                return APIMethods.LoadFollowers(login: login!, page: self.page, per_page: self.batchSize)
             case .None:
                 return nil
             }

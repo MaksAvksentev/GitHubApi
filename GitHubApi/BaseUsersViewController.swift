@@ -16,6 +16,8 @@ class BaseUsersViewController: BaseViewController, UsersDataSourceProtocol, UITa
     var dataSource: UsersDataSource = UsersDataSource(withState: .None)
     var login: String?
     
+    var indicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+
     //MARK: - LifeCycle
     override func viewDidLoad() {
         
@@ -50,14 +52,32 @@ class BaseUsersViewController: BaseViewController, UsersDataSourceProtocol, UITa
         }
     }
     
+    private func startIndicator() {
+        
+        self.indicator.center = self.view.center
+        self.indicator.hidesWhenStopped = true
+        self.indicator.startAnimating()
+        self.view.addSubview(self.indicator)
+    }
+    
+    private func stopIndicator() {
+    
+        self.indicator.stopAnimating()
+      
+    }
+    
     //MARK: - Main
     func refreshUsers() {
         
-        self.dataSource.update(withUser: self.login,completionHandler: {[weak self] success, error in
+        self.startIndicator()
         
+        
+        self.dataSource.update(withUser: self.login,completionHandler: {[weak self] success, error in
+           
             switch success {
             case true:
                 DispatchQueue.main.async {
+                    self?.stopIndicator()
                     self?.tableView.reloadData()
                 }
                 break
@@ -94,6 +114,14 @@ class BaseUsersViewController: BaseViewController, UsersDataSourceProtocol, UITa
         viewController.login = user.login!
         viewController.navigationItem.title = user.login!
         self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        if indexPath.row == self.dataSource.users.count - 1 {
+        
+            self.refreshUsers()
+        }
     }
     
     //MARK: - UsersDataSourceProtocol

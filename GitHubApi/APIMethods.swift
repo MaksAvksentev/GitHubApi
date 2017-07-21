@@ -16,21 +16,22 @@ struct APIParameters {
 
 enum APIMethods {
     
-    case LoadUsers
-    case LoadFollowers(String)
+    case LoadUsers(since: Int, per_page: Int)
+    case LoadFollowers(login: String, page: Int, per_page: Int)
     
     var requestParameters: (method: Alamofire.HTTPMethod, path: String, parameters: Dictionary<String, AnyObject>?, body: Dictionary<String, AnyObject>?) {
         
         switch self {
-        case .LoadUsers:
+        case .LoadUsers(let since, let per_page):
             
-            //let body: [String: AnyObject] = ["offset": offset as AnyObject, "limit": limit as AnyObject]
+            let body: [String: AnyObject] = ["since": since as AnyObject, "per_page": per_page as AnyObject]
             
-            return (.get, "users", nil, nil)
-        case .LoadFollowers(let login):
-            //let body: [String: AnyObject] = ["offset": offset as AnyObject, "limit": limit as AnyObject]
+            return (.get, "users", body, nil)
+        case .LoadFollowers(let login, let page, let per_page):
             
-            return (.get, "users/\(login)/followers", nil, nil)
+            let body: [String: AnyObject] = ["per_page": per_page as AnyObject, "page": page as AnyObject]
+             
+            return (.get, "users/\(login)/followers", body, nil)
         }
     }
     
